@@ -287,12 +287,6 @@ console.log('-------------------Exercise 16-----------------------------')
 
 
 
-
-
-
-
-// Please ignore the level up assigment for now as i am still working on it
-
 /*
 Exercise 17
 1. Arrange the Pokémon in `game.party` by their HP. The one with the highest HP should come first.
@@ -362,20 +356,21 @@ game.catchPokemon = function(pokemonObj) {
     if (game.items[i].name === 'pokeball' && game.items[i].quantity > 0) {
       game.items[i].quantity -= 1;
       game.party.push(pokemonObj);
-      break;
-    }
-  };
-  for (let x = 0; x < game.items.length; x++) {
-    if (game.items[x].quantity <= 0) {
-        game.message = 'There are not enough pokeballs to catch the desired Pokemon!';
+    } else if (game.items[i].name === 'pokeball' && game.items[i].quantity <= 0) {
+      game.message = 'There are not enough pokeballs to catch the desired Pokemon!'
     }
   };
 };
 
-game.catchPokemon(pokemon[11])
-game.catchPokemon(pokemon[15])
-game.catchPokemon(pokemon[20])
-game.catchPokemon(pokemon[25])
+// game.catchPokemon(pokemon[11])
+// game.catchPokemon(pokemon[15])
+// game.catchPokemon(pokemon[20])
+// game.catchPokemon(pokemon[25])
+// game.catchPokemon(pokemon[88])
+// game.catchPokemon(pokemon[27])
+// game.catchPokemon(pokemon[89])
+// game.catchPokemon(pokemon[77])
+// game.catchPokemon(pokemon[63])
 
 console.log(game)
   // if (game.items[1].quantity > 0) {
@@ -400,12 +395,46 @@ console.log('-------------------Exercise 20-----------------------------')
 
 game.catchPokemon = function(pokemonName) {
   const pokemonFound = pokemon.find(function (pokey) {
-    return pokey.name === pokemonName
-  })
-  console.log(pokemonFound)
+    return pokey.name === pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1).toLowerCase()
+  });
+  for (let i = 0; i < game.items.length; i++) {
+    if (game.items[i].name === 'pokeball' && game.items[i].quantity > 0) {
+      game.items[i].quantity -= 1;
+      game.party.push(pokemonFound);
+    } else if (game.items[i].name === 'pokeball' && game.items[i].quantity <= 0) {
+      game.message = 'There are not enough pokeballs to catch the desired Pokemon!'
+    }
+  };
 }
-game.catchPokemon('Caterpie')
+
+game.catchPokemon('caterPIE')
+game.catchPokemon('butterFree')
+console.log(game)
 
 console.log('-------------------Exercise 20-----------------------------')
 
-//=> my code above is not working. I also don't know how to code this scenario; (The string passed in should be allowed to be any case (for example, if the string 'PiKacHU' is passed to the function, it should match to 'Pikachu' in the data set).)
+/*
+Exercise 21
+Dynamically construct an object with the existing `pokemon` data sorted by the different pokemon types. The object will have this structure:
+
+{
+  grass: [
+    { number: 1, name: 'Bulbasaur', type: 'grass', hp: 45, starter: true },
+    { number: 2, name: 'Ivysaur', type: 'grass', hp: 60, starter: false },
+    { number: 3, name: 'Venusaur', type: 'grass', hp: 80, starter: false },
+    * more grass type Pokemon objects...
+  ],
+  fire: [
+    { number: 4, name: 'Charmander', type: 'fire', hp: 39, starter: true },
+    * more fire type Pokemon objects...
+  ],
+  water: [
+    * water type Pokemon objects...
+  ],
+  * etc... until there is an array for every Pokemon type!
+}
+
+Log the object when it's constructed.
+
+Solve Exercise 21 here:
+*/
