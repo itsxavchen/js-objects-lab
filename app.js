@@ -438,3 +438,37 @@ Log the object when it's constructed.
 
 Solve Exercise 21 here:
 */
+
+console.log('-------------------Exercise 21-----------------------------')
+
+// const myPokemonObj = ['water', 'water', 'water', 'fire', 'grass', 'grass', 'ghost', 'ghost', 'psychic', 'earth', 'earth', 'normal'];
+// const type = []
+// for (let i = 0; i < myPokemonObj.length; i ++) {
+//   if (!type.includes(myPokemonObj[i])) {
+//     type.push(myPokemonObj[i]);
+//   }
+// }
+// console.log(type)
+
+const myPokemonObj = {};
+const typeKeys = [];
+pokemon.forEach(function (eachPokemon) {
+  if (!typeKeys.includes(eachPokemon.type)) {
+    typeKeys.push(eachPokemon.type)
+  };
+  return typeKeys
+})
+
+for (let i = 0; i < typeKeys.length; i ++) {
+  myPokemonObj[typeKeys[i]] = []
+  for (let x = 0; x < pokemon.length; x ++) {
+    if (pokemon[x].type === typeKeys[i]) {
+      myPokemonObj[typeKeys[i]].push(pokemon[x])
+    }
+  }
+}
+
+console.log(myPokemonObj)
+
+
+console.log('-------------------Exercise 21-----------------------------')
