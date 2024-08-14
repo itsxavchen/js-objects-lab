@@ -441,15 +441,6 @@ Solve Exercise 21 here:
 
 console.log('-------------------Exercise 21-----------------------------')
 
-// const myPokemonObj = ['water', 'water', 'water', 'fire', 'grass', 'grass', 'ghost', 'ghost', 'psychic', 'earth', 'earth', 'normal'];
-// const type = []
-// for (let i = 0; i < myPokemonObj.length; i ++) {
-//   if (!type.includes(myPokemonObj[i])) {
-//     type.push(myPokemonObj[i]);
-//   }
-// }
-// console.log(type)
-
 const myPokemonObj = {};
 const typeKeys = [];
 pokemon.forEach(function (eachPokemon) {
